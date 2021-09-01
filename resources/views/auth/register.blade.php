@@ -13,14 +13,19 @@
     <div class="card-body px-lg-5 pt-0">
 
         <!-- Form -->
-        <form class="text-center" style="color: #757575;" action="#!">
+        <form class="text-center" style="color: #757575;" action="{{route('post_register')}}" method="POST" 
+        enctype="multipart/form-data">
+        @csrf
 
             <div class="form-row">
                 <div class="col">
                     <!-- First name -->
                     <div class="md-form">
-                        <input type="text" id="materialRegisterFormFirstName" class="form-control">
+                        <input type="text" id="materialRegisterFormFirstName" class="form-control" name="username">
                         <label for="materialRegisterFormFirstName">UserName</label>
+                        @error("username")
+                        <p class="text-danger">{{$message}}</p>
+                        @enderror
                     </div>
                 </div>
                
@@ -28,35 +33,39 @@
 
             <!-- E-mail -->
             <div class="md-form mt-0">
-                <input type="email" id="materialRegisterFormEmail" class="form-control">
+                <input type="email" id="materialRegisterFormEmail" class="form-control" name="email">
+                @error("email")
+                        <p class="text-danger">{{$message}}</p>
+                @enderror
                 <label for="materialRegisterFormEmail">E-mail</label>
+                
             </div>
 
             <!-- Password -->
             <div class="md-form">
-                <input type="password" id="materialRegisterFormPassword" class="form-control" aria-describedby="materialRegisterFormPasswordHelpBlock">
+                <input type="password" id="materialRegisterFormPassword" class="form-control" aria-describedby="materialRegisterFormPasswordHelpBlock" name="password">
+                @error("password")
+                        <p class="text-danger">{{$message}}</p>
+                @enderror
                 <label for="materialRegisterFormPassword">Password</label>
                 <small id="materialRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
                 </small>
             </div>
             <p for="">Select Your Profile Picture</p>
             <div class="md-form">
-                <input type="file" id="materialRegisterFormPassword" class="form-control" aria-describedby="materialRegisterFormPasswordHelpBlock">
-                
+                <input type="file" id="materialRegisterFormPassword" class="form-control" aria-describedby="materialRegisterFormPasswordHelpBlock" name="image">
+                @error("image")
+                        <p class="text-danger">{{$message}}</p>
+                @enderror
             </div>
-
             <!-- Sign up button -->
             <button class="btn btn-outline-pink btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit">Register</button>
             <p>
                 <a href="{{route('login')}}">Already Registered?</a>
             </p>
-
-
         </form>
         <!-- Form -->
-
     </div>
-
 </div>
 <!-- Material form register -->
 

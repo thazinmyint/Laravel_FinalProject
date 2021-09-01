@@ -52,21 +52,34 @@
       <li class="nav-item avatar dropdown">
         <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-55" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false">
-          <img src="{{asset('images/profiles/'.auth()->user()->image)}}" class="rounded-circle z-depth-0"
-            alt="avatar image" width="40px" height="40px">
+          {{-- <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg" class="rounded-circle z-depth-0"
+            alt="avatar image"> --}}
         </a>
         <div class="dropdown-menu dropdown-menu-lg-right dropdown-secondary"
           aria-labelledby="navbarDropdownMenuLink-55">
-          <a class="dropdown-item" href="#">{{auth()->user()->name}}</a>
           <a class="dropdown-item" href="{{route('userProfile')}}">User Profile</a>
-          <a class="dropdown-item" href="{{route('logout')}}">Logout</a>
+          <a class="dropdown-item" href="#">Logout</a>
         </div>
       </li>
     </ul>
   </div>
 </nav>
 <!--/.Navbar -->
-    @yield('content')
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4">
+                <ul class="list-group mt-3">
+                    <li class="list-group-item"><a href="{{route('admin.manage_premium_users')}}">Manage Premium User</a></li>
+                    <li class="list-group-item"><a href="{{route('admin.contact_messages')}}">Contact Message</a></li>
+
+                  </ul>
+            </div>
+            <div class="col-md-8">
+                @yield('content')
+                
+            </div>
+        </div>
+    </div>
 
     <!-- JQuery -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
