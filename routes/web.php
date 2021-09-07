@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,20 +20,25 @@ use Illuminate\Support\Facades\Route;
 //home
 Route::middleware('auth')->group(function(){
     Route::get('/',[PageController::class,'index'])->name('home');
-    Route::get('/posts/{id}',[PageController::class,'showPostById'])->name('showPostById');
-    Route::get('/posts/delete/{id}',[PageController::class,'deletePost'])->name('deletePost');
-    Route::get('/posts/edit/{id}',[PageController::class,'editPost'])->name('editPost');
-    Route::post('/posts/update/{id}',[PageController::class,'updatePost'])->name('updatePost');
 
-
-    //user
     Route::get('/user/createPost',[PageController::class,'createPost'])->name('createPost');
-    Route::post('/user/createPost',[PageController::class,'post'])->name('post');
-
+    Route::get('/posts/{id}',[PageController::class,'showPostById'])->name('showPostById');
+    Route::get('/posts/edit/{id}',[PageController::class,'editPost'])->name('editPost');
     Route::get('/user/userProfile',[PageController::class,'userProfile'])->name('userProfile');
-    Route::post('/user/userProfile',[PageController::class,'post_userProfile'])->name('post_userProfile');
-
     Route::get('/user/contactUs',[PageController::class,'contactUs'])->name('contactUs');
+
+    //post
+    Route::get('/posts/delete/{id}',[PostController::class,'deletePost'])->name('deletePost');
+    Route::post('/posts/update/{id}',[PostController::class,'updatePost'])->name('updatePost');
+    Route::post('/user/createPost',[PostController::class,'createPost'])->name('post');
+
+    //contactus
+    Route::post('/user/contactUs',[ContactUsController::class,'post_contact_message'])->name('post_contact_message');
+    
+    //user
+    
+    Route::post('/user/userProfile',[AuthController::class,'post_userProfile'])->name('post_userProfile');
+
 
     //admin
     Route::get('/admin/index',[AdminController::class,'index'])->name('admin.home');
@@ -52,3 +59,10 @@ Route::middleware('guest')->group(function(){
     Route::post("/register",[AuthController::class,'post_register'])->name("post_register");
 });
 
+
+// delete edit->get
+// update create->post
+// read ->get
+
+// user->server =>post
+// server->user =>get

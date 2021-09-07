@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ContactMessage;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -13,6 +14,7 @@ class AdminController extends Controller
         return view('admin.manage-premium-users');
     }
     function contact_messages(){
-        return view('admin.contact-messages');
+        $messages=ContactMessage::latest()->get();
+        return view('admin.contact-messages',['messages'=>$messages]);
     }
 }

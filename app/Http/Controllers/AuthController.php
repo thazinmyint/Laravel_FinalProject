@@ -81,4 +81,47 @@ class AuthController extends Controller
         Auth::logout();
         return redirect()->route('login');
     }
+
+    function post_userProfile(){
+        $name=request('name');
+        $email=request('email');
+        $image=request('image');
+        $old_password=request('old_password');
+        $new_password=request('new_password');
+
+        // dd($name,$email,$image,$old_password,$new_password);
+        // if user is not select image and not change password
+            //add name and email to current user's id:
+        $id=auth()->user()->id;
+        $current_user=User::find($id);
+        $current_user->name=$name;
+        $current_user->email=$email;
+
+        if($image){
+            // move file to public path
+            $imageName=uniqid()."_".$image->getClientOriginalName();
+            $image->move(public_path('images/profiles'),$imageName);
+            //save image to current user id
+            $current_user->image=$imageName;
+            $current_user->update();
+            return back()->with("success","image changed");
+        }
+        if($old_password && $new_password){
+            //check user input old pw is same as current user pw in database
+            if(Hash::check($old_password,$current_user->password)){
+                // if same
+                //let user to  change new pw
+                $current_user->password=Hash::make($new_password) ;
+                $current_user->update();
+                return back()->with("success","password changed");
+            } else{
+                return back()->with("error","old password is not same");
+            }
+            
+
+        }
+        $current_user->update();
+        return back();
+
+    }
 }

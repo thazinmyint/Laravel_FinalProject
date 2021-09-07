@@ -15,14 +15,17 @@
         </tr>
     </thead>
     <tbody>
+    @foreach ($messages as $message)
         <tr>
-        <th scope="row">1</th>
-        <td>TZM</td>
-        <td>god@gmail.com</td>
-        <td>Hi admin</td>
+        <th>{{$message->id}}</th>
+        <td>{{$message->username}}</td>
+        <td>{{$message->email}}</td>
+        <td>{{$message->messages}}</td>
         <td><button class="btn btn-sm green white-text">update</button></td>
-        <td><button class="btn btn-sm red white-text">update</button></td>
+        <td><button class="btn btn-sm red white-text">Delete</button></td>
         </tr>
+        
+    @endforeach
         
     </tbody>
 </table>
