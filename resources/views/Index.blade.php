@@ -1,5 +1,4 @@
-@extends('layouts.pagelayout')
-@section('content')
+<x-pagelayout>
 <!-- background image -->
     <header>
         
@@ -35,4 +34,5 @@
     </div>
 
 </div>
-@endsection
+
+</x-pagelayout>

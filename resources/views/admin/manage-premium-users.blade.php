@@ -1,6 +1,5 @@
-@extends('layouts.adminlayout')
+<x-adminlayout>
 
-@section('content')
     <h1>manage premium users</h1>
     <table class="table table-hover">
     <thead class="green white-text">
@@ -28,4 +27,4 @@
         
     </tbody>
 </table>
-@endsection
+</x-adminlayout>

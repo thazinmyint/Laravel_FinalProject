@@ -1,5 +1,5 @@
-@extends('layouts.pagelayout')
-@section('content')
+<x-pagelayout>
+
 <div class="container mt-5">
     <img src="{{asset('images/posts/'.$post->image)}}"  width="1000px" height="600px" class="mr-3">
     <p class="mt-3">{{$post->content}}</p>
@@ -10,4 +10,5 @@
 
 </div>
 
-@endsection
+</x-pagelayout>
+

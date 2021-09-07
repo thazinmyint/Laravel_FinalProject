@@ -1,6 +1,5 @@
-@extends('layouts.pagelayout')
+<x-pagelayout>
 
-@section('content')
     <div class="container"> 
         <h1 class="mt-4 mb-4">User Profile</h1>
         <!-- Default form login -->
@@ -42,4 +41,4 @@
             </form>
     <!-- Default form login -->
     </div>
-@endsection
+</x-pagelayout>

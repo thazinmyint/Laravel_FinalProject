@@ -1,5 +1,4 @@
-@extends('layouts.authlayout')
-@section('content')
+<x-authlayout>
 <div class="container">
     <div class="col-md-4 offset-4 mt-5">
         <!-- Default form login -->                 
@@ -39,4 +38,4 @@
 
 </div>
     
-@endsection
+</x-authlayout>

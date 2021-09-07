@@ -1,5 +1,5 @@
-@extends('layouts.pagelayout')
-@section('content')
+<x-pagelayout>
+
    <div class="container">
        <h1 class="mt-4 mb-4">Create Post</h1>
        <!-- Default form login -->
@@ -20,4 +20,4 @@
 </form>
 <!-- Default form login -->
    </div>
-@endsection
+</x-pagelayout>
