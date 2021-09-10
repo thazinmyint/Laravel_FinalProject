@@ -35,4 +35,12 @@ class ContactUsController extends Controller
 
 
     }
+    function deleteMessage($id){
+        //find that delete data in db
+        $deleteData=ContactMessage::find($id);
+        //delete that data
+        $deleteData->delete();
+        return back()->with('message','message deleted');
+
+    }
 }

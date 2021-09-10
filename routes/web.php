@@ -34,6 +34,8 @@ Route::middleware('auth')->group(function(){
 
     //contactus
     Route::post('/user/contactUs',[ContactUsController::class,'post_contact_message'])->name('post_contact_message');
+    Route::get('/admin/contact_messages/delete/{id}',[ContactUsController::class,'deleteMessage'])->name('deleteMessage');
+
     
     //user
     

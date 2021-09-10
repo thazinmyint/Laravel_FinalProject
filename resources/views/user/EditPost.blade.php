@@ -24,4 +24,4 @@
 </form>
 <!-- Default form login -->
    </div>
-<x-pagelayout>
+</x-pagelayout>
