@@ -18,14 +18,14 @@
         @foreach ($users as $user)
             <tr>
             <th>{{$user->id}}</th>
-            <td>{{$user->username}}</td>
+            <td>{{$user->name}}</td>
             <td>{{$user->email}}</td>
 
             <td><b>{{$user->isAdmin =='0'? "FALSE":"TRUE"}}</b></td>
             <td><b>{{$user->isPremium == '0'? "FALSE":"TRUE"}}</b></td>
 
-            <td><button class="btn btn-sm green white-text">update</button></td>
-            <td><button class="btn btn-sm red white-text">update</button></td>
+            <td><a class="btn btn-sm green white-text" href="{{route('updateUser',$user->id)}}">update</a></td>
+            <td><a class="btn btn-sm red white-text" href="{{route('deleteUser',$user->id)}}">Delete</a></td>
             </tr>
         @endforeach
         

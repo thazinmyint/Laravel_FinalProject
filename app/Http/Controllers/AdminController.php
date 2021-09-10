@@ -19,4 +19,14 @@ class AdminController extends Controller
         $messages=ContactMessage::latest()->get();
         return view('admin.contact-messages',['messages'=>$messages]);
     }
+    function deleteUser($id){
+        //find that delete user in database by id
+        $deletUser=User::find($id);
+        // return $deletUser;
+
+        //delete that data
+        $deletUser->delete();
+        //return back
+        return back()->with('message','user deleted');
+    }
 }
