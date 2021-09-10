@@ -15,15 +15,19 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-        <th scope="row">1</th>
-        <td>TZM</td>
-        <td>god@gmail.com</td>
-        <td>true</td>
-        <td>true</td>
-        <td><button class="btn btn-sm green white-text">update</button></td>
-        <td><button class="btn btn-sm red white-text">update</button></td>
-        </tr>
+        @foreach ($users as $user)
+            <tr>
+            <th>{{$user->id}}</th>
+            <td>{{$user->username}}</td>
+            <td>{{$user->email}}</td>
+
+            <td><b>{{$user->isAdmin =='0'? "FALSE":"TRUE"}}</b></td>
+            <td><b>{{$user->isPremium == '0'? "FALSE":"TRUE"}}</b></td>
+
+            <td><button class="btn btn-sm green white-text">update</button></td>
+            <td><button class="btn btn-sm red white-text">update</button></td>
+            </tr>
+        @endforeach
         
     </tbody>
 </table>
