@@ -20,7 +20,7 @@
                 <div class="card-body">
             
                 <!-- Title -->
-                <h4 class="card-title"><a>{{$post->title}}</a></h4>
+                <h4 class="card-title"><a>{{$post->title}}</a></h4><p>( posted by {{$post->user->name}}  )</p>
                
                 <!-- Button -->
                 <a href="{{route('showPostById',$post->id)}}" class="btn btn-primary">See More</a>
