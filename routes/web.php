@@ -34,28 +34,29 @@ Route::middleware('auth')->group(function(){
 
     //contactus
     Route::post('/user/contactUs',[ContactUsController::class,'post_contact_message'])->name('post_contact_message');
-    Route::get('/admin/contact_messages/delete/{id}',[ContactUsController::class,'deleteMessage'])->name('deleteMessage');
-    Route::get('/admin/contact_messages/edit/{id}',[ContactUsController::class,'editMessage'])->name('editMessage');
-    Route::post('/admin/contact_messages/update/{id}',[ContactUsController::class,'updateMessage'])->name('updateMessage');
+    
 
     
     //user
     
     Route::post('/user/userProfile',[AuthController::class,'post_userProfile'])->name('post_userProfile');
-
+    //logout
+    Route::get('/logout',[AuthController::class,'logout'])->name('logout');
 
     //admin
+    Route::middleware('admin')->group(function(){
+        Route::get('/admin/contact_messages/delete/{id}',[ContactUsController::class,'deleteMessage'])->name('deleteMessage');
+    Route::get('/admin/contact_messages/edit/{id}',[ContactUsController::class,'editMessage'])->name('editMessage');
+    Route::post('/admin/contact_messages/update/{id}',[ContactUsController::class,'updateMessage'])->name('updateMessage');
     Route::get('/admin/index',[AdminController::class,'index'])->name('admin.home');
     Route::get('/admin/manage_premium_users',[AdminController::class,'manage_premium_users'])->name('admin.manage_premium_users');
     Route::get('/admin/manage_premium_users/delete/{id}',[AdminController::class,'deleteUser'])->name('deleteUser');
     Route::get('/admin/manage_premium_users/edit/{id}',[AdminController::class,'editUser'])->name('editUser');
     Route::post('/admin/manage_premium_users/update/{id}',[AdminController::class,'updateUser'])->name('updateUser');
-
-
     Route::get('/admin/contact_messages',[AdminController::class,'contact_messages'])->name('admin.contact_messages');
+    });
 
-    //logout
-    Route::get('/logout',[AuthController::class,'logout'])->name('logout');
+    
 
 });
 

@@ -10,10 +10,10 @@ use Illuminate\Support\Facades\Hash;
 class PageController extends Controller
 {
     function index() {
-        // $posts=Post::latest()->get();
-        // return view('Index',['posts'=>$posts]);
-        $user1=User::find(1);
-        dd($user1->posts->toArray());
+        $posts=Post::latest()->get();
+        return view('Index',['posts'=>$posts]);
+        // $user1=User::find(1);
+        // dd($user1->posts->toArray());
     }
 
     function createPost(){

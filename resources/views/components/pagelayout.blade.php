@@ -48,6 +48,12 @@
     
     @endif
 
+    @if(Session('errors'))
+      let message="{{Session('errors')}}"
+      toastr.error(message);
+    
+    @endif
+
     </script>
 </body>
 </html>
