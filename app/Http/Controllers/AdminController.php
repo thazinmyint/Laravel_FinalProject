@@ -34,6 +34,7 @@ class AdminController extends Controller
     function editUser($id){
         $updateUser=User::find($id);
         return view('admin.edituser',['updateUser'=>$updateUser]);
+        
     }
     function updateUser($id){
         //validation
@@ -57,7 +58,5 @@ class AdminController extends Controller
         }else{
             return back()->withErrors($validation);
         }
-    
-       
     }
 }

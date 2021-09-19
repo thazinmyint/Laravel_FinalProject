@@ -28,8 +28,8 @@ Route::middleware('auth')->group(function(){
     Route::get('/user/contactUs',[PageController::class,'contactUs'])->name('contactUs');
 
     //post
-    Route::get('/posts/delete/{id}',[PostController::class,'deletePost'])->name('deletePost');
-    Route::post('/posts/update/{id}',[PostController::class,'updatePost'])->name('updatePost');
+    Route::get('/posts/delete/{id}',[PostController::class,'deletePost'])->name('deletePost')->middleware('premiumUser');
+    Route::post('/posts/update/{id}',[PostController::class,'updatePost'])->name('updatePost')->middleware('premiumUser');
     Route::post('/user/createPost',[PostController::class,'createPost'])->name('post');
 
     //contactus
