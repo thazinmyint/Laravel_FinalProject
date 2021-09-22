@@ -21,7 +21,8 @@
                 <div class="col">
                     <!-- First name -->
                     <div class="md-form">
-                        <input type="text" id="materialRegisterFormFirstName" class="form-control" name="username">
+                        <input type="text" id="materialRegisterFormFirstName" class="form-control" name="username"
+                        value="{{old('username')}}">
                         <label for="materialRegisterFormFirstName">UserName</label>
                         @error("username")
                         <p class="text-danger">{{$message}}</p>
@@ -33,7 +34,8 @@
 
             <!-- E-mail -->
             <div class="md-form mt-0">
-                <input type="email" id="materialRegisterFormEmail" class="form-control" name="email">
+                <input type="email" id="materialRegisterFormEmail" class="form-control" name="email"
+                value="{{old('email')}}">
                 @error("email")
                         <p class="text-danger">{{$message}}</p>
                 @enderror
@@ -43,11 +45,20 @@
 
             <!-- Password -->
             <div class="md-form">
-                <input type="password" id="materialRegisterFormPassword" class="form-control" aria-describedby="materialRegisterFormPasswordHelpBlock" name="password">
+                <input type="password" id="materialRegisterFormPassword" class="form-control" aria-describedby="materialRegisterFormPasswordHelpBlock" name="password"
+                value="{{old('password')}}">
                 @error("password")
                         <p class="text-danger">{{$message}}</p>
                 @enderror
                 <label for="materialRegisterFormPassword">Password</label>
+                <small id="materialRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
+                </small>
+            </div>
+            {{-- confirm password --}}
+            <div class="md-form">
+                <input type="password" id="materialRegisterFormPassword" class="form-control" aria-describedby="materialRegisterFormPasswordHelpBlock" name="password_confirmation">
+                
+                <label for="materialRegisterFormPassword">Confirm Password</label>
                 <small id="materialRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
                 </small>
             </div>
