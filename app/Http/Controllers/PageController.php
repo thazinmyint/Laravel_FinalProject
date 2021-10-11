@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Hash;
 class PageController extends Controller
 {
     function index() {
-        $posts=Post::latest()->get();
+        $posts=Post::latest()->paginate(9);
         return view('Index',['posts'=>$posts]);
         // $user1=User::find(1);
         // dd($user1->posts->toArray());

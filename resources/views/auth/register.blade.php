@@ -16,7 +16,6 @@
         <form class="text-center" style="color: #757575;" action="{{route('post_register')}}" method="POST" 
         enctype="multipart/form-data">
         @csrf
-
             <div class="form-row">
                 <div class="col">
                     <!-- First name -->
@@ -29,9 +28,7 @@
                         @enderror
                     </div>
                 </div>
-               
             </div>
-
             <!-- E-mail -->
             <div class="md-form mt-0">
                 <input type="email" id="materialRegisterFormEmail" class="form-control" name="email"
@@ -40,7 +37,6 @@
                         <p class="text-danger">{{$message}}</p>
                 @enderror
                 <label for="materialRegisterFormEmail">E-mail</label>
-                
             </div>
 
             <!-- Password -->
@@ -80,7 +76,7 @@
 </div>
 <!-- Material form register -->
 
-    </div>
+</div>
 </div>
     
 </x-authlayout>

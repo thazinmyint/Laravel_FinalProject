@@ -31,6 +31,7 @@
             <!-- Card -->
         </div>
         @endforeach
+        {{$posts->links()}}
     </div>
 
 </div>
